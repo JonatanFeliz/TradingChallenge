@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Inditex
 {
-    public class InditexMarket
+    public class InditexTrading
     {
         [Name("Fecha")]
         public string MarketOpenDays { get; set; }

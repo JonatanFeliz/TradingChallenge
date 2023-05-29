@@ -8,32 +8,38 @@ namespace UtilsFunctions
 {
     public class Util
     {
-        public static DateTime GetLastThursday(DateTime lastDayOfMonth)
-        {
-            DateTime lastThursday = lastDayOfMonth;
-
-            while (lastThursday.DayOfWeek != DayOfWeek.Thursday)
-            {
-                lastThursday = lastThursday.AddDays(-1);
-            }
-
-            return lastThursday;
-        }
-
         public static string AddDotToDate(string day)
         {
-            int endMonthPosition = day.IndexOf("-") + 4;
+            try
+            {
+                var endMonthPosition = day.IndexOf("-") + 4;
 
-            string dateWithPoint = day.Insert(endMonthPosition, ".");
+                var dateWithPoint = day.Insert(endMonthPosition, ".");
 
-            return dateWithPoint;
+                return dateWithPoint;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Se ha producido una excepción: " + ex.Message);
+                return "";
+            }
+            
         }
 
         public static string RemoveDotToDate(string day)
         {
-            string dateWithOutPoint = day.Replace(".", ""); ;
+            try
+            {
+                var dateWithOutPoint = day.Replace(".", ""); ;
 
-            return dateWithOutPoint;
+                return dateWithOutPoint;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Se ha producido una excepción: " + ex.Message);
+                return "";
+            }
+            
         }
     }
 }
